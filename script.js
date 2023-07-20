@@ -16,3 +16,24 @@ async function getData() {
       })
   return data;
 }
+
+function dataItemTemplate(item) {
+  return (
+    `<li>
+      <p>${item.name}</p>
+      <p>${item.email}</p>
+    </li>`
+  )
+}
+
+async function renderData() {
+  const wrapperDOM = document.getElementById('wrapper');
+  try {
+    const data = await getData();
+    wrapperDOM.innerHTML = data.map(item => dataItemTemplate(item)).join('');
+  } catch (error) {
+    wrapperDOM.innerHTML = error
+  }
+}
+
+renderData();
