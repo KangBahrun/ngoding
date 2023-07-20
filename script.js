@@ -1,8 +1,8 @@
 async function getData() {
-  const spreadsheetId = '1EbKqSZR0u637wPIOnLkRX27EEQPgMk6k070RHt5-Bl0'
+  const spreadsheetId = '1EbKqSZR0u637wPIOnLkRX27EEQPgMk6k070RHt5-Bl0';
   const apiKey = 'AIzaSyBSLWlswwRShiPHcZ08maoN2TAPwggc1OM';
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/?key=${apiKey}&includeGridData=true`;
-  const result = await fetch(url)
+  const result = await fetch(url);
   const { sheets } = await result.json();
   const firstSheet = sheets[0];
   const data = firstSheet.data[0].rowData
